@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<link href="css/lotterycss.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+	integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+	integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+function changepage() {
+	const lottery = document.getElementById("lottery").value;
+	if(lottery==="max"){
+	 window.location.assign("/addlotterymax");
+	} else{
+	window.location.assign("/addlotterymega");
+	}
+ 
+}
+</script>
+
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	<div class="d-flex justify-content-center mt-5 mb-5">
+		<div class="zone col-md-6 border">
+			<div class="header">
+				<div class="text-center border-bottom mt-2 mb-2">
+					<h3>Add lottery</h3>
+				</div>
+				<!-- /.header-title -->
+			</div>
+			<!-- /.header -->
+			<div>
+				<div class="doso_img">
+					<img
+						src="https://media.vietlott.vn//main/04.2019/bcc/game/thumbnail_max3d-01.jpg"
+						alt="Max 3D">
+				</div>
+				<!-- /doso_img -->
+			<form action="#" th:action="@{/addMax}" method="post" th:object="${lottery}">
+				<div class="row mt-5 mb-2">
+					<div class="col-3"></div>
+					<div class="col-6">
+						<h5 class="text-center">Choose lottery type</h5>
+						<div class="mx-3 mt-3">
+							<select class="form-control" id="lottery" onchange="changepage()" th:field="*{lotteryType}">
+								<option selected value="max">Max 3D</option>
+								<option value="mega">Mega 6/45</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-3"></div>
+
+					<div class="col-3"></div>
+					<div class="col-6">
+						<h5 class="text-center mt-3">Draw date</h5>
+						<div class="mt-3">
+							<input type="date" class="form-control"
+								required="required" th:field="*{drawDate}">
+						</div>
+					</div>
+					<div class="col-3"></div>
+
+					<div class="mt-4">
+						<h5 class="text-center">Special price</h5>
+						<div class="mt-4 d-flex justify-content-evenly">
+							<input type="text" maxlength="3" class="ip-round"
+								name="special-price1" required="required"> <input
+								type="text" maxlength="3" class="ip-round" name="special-price2"
+								required="required">
+						</div>
+					</div>
+					<div class="mt-4">
+						<h5 class="text-center">First price</h5>
+						<div class="mt-4 d-flex justify-content-evenly">
+							<input type="text" class="ip-round" maxlength="3"
+								name="first-price1" required="required"> <input
+								type="text" maxlength="3" class="ip-round" name="first-price2"
+								required="required"> <input type="text" maxlength="3"
+								class="ip-round" name="first-price3" required="required">
+							<input type="text" maxlength="3" class="ip-round"
+								name="first-price4" required="required">
+						</div>
+					</div>
+					<div class="mt-4">
+						<h5 class="text-center">Second price</h5>
+						<div class="mt-4 d-flex justify-content-evenly">
+							<input type="text" class="ip-round" maxlength="3"
+								name="second-price1" required="required"> <input
+								type="text" maxlength="3" class="ip-round" name="second-price2"
+								required="required"> <input type="text" class="ip-round"
+								maxlength="3" name="second-price3" required="required">
+						</div>
+						<div class="mt-4 d-flex justify-content-evenly">
+							<input type="text" class="ip-round" maxlength="3"
+								name="second-price4" required="required"> <input
+								type="text" maxlength="3" class="ip-round" name="second-price5"
+								required="required"> <input type="text" class="ip-round"
+								maxlength="3" name="second-price6" required="required">
+						</div>
+					</div>
+					<div class="mt-4">
+						<h5 class="text-center">Third price</h5>
+						<div class="mt-4 d-flex justify-content-evenly">
+							<input type="text" class="ip-round" maxlength="3"
+								name="third-price1" required="required"> <input
+								type="text" class="ip-round" maxlength="3" name="third-price2"
+								required="required"> <input type="text" maxlength="3"
+								class="ip-round" name="third-price3" required="required"><input
+								type="text" maxlength="3" class="ip-round" name="third-price4"
+								required="required">
+						</div>
+						<div class="mt-4 d-flex justify-content-evenly">
+							<input type="text" class="ip-round" maxlength="3"
+								name="third-price5" required="required"> <input
+								type="text" class="ip-round" maxlength="3" name="third-price6"
+								required="required"> <input type="text" class="ip-round"
+								maxlength="3" name="third-price7" required="required"><input
+								type="text" class="ip-round" maxlength="3" name="third-price8"
+								required="required">
+						</div>
+					</div>
+					<div class="col-sm-12 text-center mt-4 mb-5">
+						<input type="submit" class="btn btn-outline-secondary"
+							style="color: red" value="Add lottery">
+					</div>
+				</div>
+				</form>
+				<!-- /doso_input -->
+			</div>
+		</div>
+	</div>
+	<footer th:replace="footer :: footer"> </footer>
+</body>
+</html>

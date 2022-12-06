@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+<link href="/css/lotterycss.css" rel="stylesheet" />
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
+<link href="css/lotterycss.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	<div class="adjust-width">
+		<div class="w-25">
+			<form action="#" th:action="@{/updateAccountForm}"
+				th:object="${updateAccount}" method="post">
+
+				<div class="text-center mb-3">
+					<h2>Update Account</h2>
+				</div>
+				<input type="hidden" th:field="*{id}" /> <input type="hidden"
+					th:field="*{accountRole}" />
+				<!-- Name input -->
+				<div class="form-outline mb-4">
+					<label for="registerName">Full Name</label> <input type="text"
+						id="registerName" class="form-control" th:field="*{fullName}" th:text="${updateAccount.fullName}"/>
+					<p class="text-danger" th:if="${#fields.hasErrors('fullName')}"
+						th:errors="*{fullName}">
+				</div>
+
+				<!-- Username input -->
+				<div class="form-outline mb-4">
+					<label for="registerEmail">Email</label> <input type="email"
+						id="registerEmail" class="form-control" th:field="*{userMail}" />
+					<p class="text-danger" th:if="${#fields.hasErrors('userMail')}"
+						th:errors="*{userMail}">
+				</div>
+
+				<!-- Phone input -->
+				<div class="form-outline mb-4">
+					<label for="registerPhone">Phone Number</label> <input type="text"
+						id="registerPhone" class="form-control" th:field="*{userPhone}" />
+					<p class="text-danger" th:if="${#fields.hasErrors('userPhone')}"
+						th:errors="*{userPhone}">
+				</div>
+
+				<!-- Password input -->
+				<div class="form-outline mb-4">
+					<label for="registerPassword">Password</label> <input
+						type="password" id="registerPassword" class="form-control"
+						th:field="*{password}" />
+					<p class="text-danger" th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}">
+				</div>
+				<div class="form-outline mb-4">
+					<label for="selectStatus">Status</label> <select
+						class="form-select" th:field="*{status}" id="selectStatus">
+						<option selected th:value="${updateAccount.status}"
+							th:text="${updateAccount.status}"></option>
+						<option th:if="${updateAccount.status == 'Active'}"
+							th:value="Block" th:text="Block"></option>
+						<option th:unless="${updateAccount.status == 'Active'}"
+							th:value="Active" th:text="Active">
+					</select>
+				</div>
+
+				<!-- Submit button -->
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary btn-block mb-3 w-100">Update
+						Account</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<footer th:replace="footer :: footer"> </footer>
+</body>
+</html>

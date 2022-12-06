@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+.kqth {
+	background: #F1F1F7;
+	padding-bottom: 20px;
+}
+
+.kqth h2 {
+	text-align: center;
+	font-size: 32px;
+	color: #060a38;
+	font-family: MyriadPro_Semibold;
+	margin: 50px 0 35px 0;
+}
+
+.box_kqtt {
+	background: white;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+	margin-bottom: 30px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.box_kqtt_red:before, .box_kqtt_purple:before, .box_kqtt_orange:before {
+	content: "";
+	height: 20px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+}
+
+.box_kqtt_red, .box_kqtt_purple, .box_kqtt_orange {
+	position: relative;
+	padding-top: 20px;
+}
+
+.box_kqtt_red:before {
+	background: url(images/home/line_home1.jpg);
+}
+
+.box_kqtt_purple:before {
+	background: url(images/home/line_home3.jpg);
+}
+
+.box_kqtt_orange:before {
+	background: url(images/home/line_home2.jpg);
+}
+
+.box_kqtt_nd_chinh {
+	padding: 30px 15px;
+	background: url(images/home/doso_output_nd.png) center no-repeat;
+	background-size: cover;
+}
+
+.box_kqtt_nd_demnguoc {
+	padding: 30px 15px;
+}
+
+.tong_day_so_ket_qua {
+	padding: 0 13px;
+	position: relative;
+}
+
+.box_kqtt_nd_chinh p {
+	color: #001452;
+	margin-bottom: 6px;
+	font-size: 14px;
+	font-family: MyriadPro_Semibold;
+}
+
+.day_so_ket_qua_v2 .bong_tron.small {
+	font-size: 18px;
+	padding: 6px;
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.day_so_ket_qua_v2 .bong_tron.tiny {
+	font-size: 18px;
+	padding: 3px 9px;
+	margin-right: 4px;
+}
+
+.day_so_ket_qua_v2 .bong_tron {
+	border-radius: 50%;
+	border: red solid 2px;
+	padding: 6px;
+	font-size: 22px;
+	font-family: consolas;
+	margin-right: 5px;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.day_so_ket_qua_v2 .bong_tron.no-margin-right {
+	margin-right: 0px;
+}
+
+.border_left_right {
+	border-left: 1px solid #060a3808;
+	border-right: 1px solid #060a3808;
+}
+
+.day_so_ket_qua_v2 {
+	padding-bottom: 20px;
+}
+
+.form-control {
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+	font-family: MyriadPro_Semibold;
+	font-size: 20px;
+}
+
+.doso_img {
+	text-align: center;
+	margin: 30px 0 20px 0;
+}
+.box_kqtt_nd_img {
+    text-align: center;
+    padding: 30px 0 30px 20px;
+}
