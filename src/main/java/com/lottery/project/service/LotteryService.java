@@ -17,6 +17,7 @@ public interface LotteryService {
 	String checkMax(String number, Lottery lottery);
 	public String checkMega(String [] numberArr, Lottery lottery);
 	boolean validateMega(String [] arr);
+	boolean validateMax(String [] arr);
 	List<Lottery> getMaxLottery();	
 	List<Lottery> getMegaLottery();	
 	void deleteLottery(long id);

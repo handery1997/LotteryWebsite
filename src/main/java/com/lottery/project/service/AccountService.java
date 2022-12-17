@@ -15,4 +15,5 @@ public interface AccountService {
 	Page <Account> findPageAccount(int pageNo,int pageSize);
 	Account findByEmail(String email);
 	boolean checkExistMail(String email);
+	String resetPassword(Account account);
 }

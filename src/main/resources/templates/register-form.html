@@ -75,6 +75,12 @@
 					<p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
 					
 				</div>
+				<div class="form-outline mb-4">
+					<label for="registerPasswordCheck">Confirm Password</label> <input
+						type="password" id="registerPasswordCheck" class="form-control"
+						name="textPass"/>
+					<p class="text-danger" th:text="${error}"></p>
+				</div>
 				<p class="text-danger text-center" th:text="${note}">
 				<!-- Submit button -->
 				<div class="text-center">

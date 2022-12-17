@@ -1,13 +1,14 @@
 package com.lottery.project.model;
 
 import java.sql.Date;
-
+import java.util.Arrays;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "Lottery_DB")
@@ -114,22 +115,27 @@ public class Lottery {
 	}
 	public String[] specialArray() {
 		String [] special = specialPrice.split(", ");
+		Arrays.sort(special);
 		return special;
 	}
 	public String[] firstArray() {
 		String [] first = firstPrice.split(", ");
+		Arrays.sort(first);
 		return first;
 	}
 	public String[] secondArray() {
 		String [] second = secondPrice.split(", ");
+		Arrays.sort(second);
 		return second;
 	}
 	public String[] thirdArray() {
 		String [] third = thirdPrice.split(", ");
+		Arrays.sort(third);
 		return third;
 	}
 	public String[] winArray() {
 		String [] win = winNumber.split(", ");
+		Arrays.sort(win);
 		return win;
 	}
 	

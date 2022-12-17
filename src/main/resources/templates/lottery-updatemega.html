@@ -38,30 +38,19 @@
 						alt="Mega 6/45">
 				</div>
 				<!-- /doso_img -->
-				<form action="#" th:action="@{/addMega}" method="post"
+				<form action="#" th:action="@{/updateMega}" method="post"
 					th:object="${lottery}">
-					
-					<div class="row mt-5 mb-2">
-					<input type="hidden" th:field="*{id}">
-						<div class="col-3"></div>
-						<div class="col-6">
-							<h5 class="text-center">Choose lottery type</h5>
-							<div class="mx-3 mt-3">
-								<select class="form-control" id="lottery"
-									onchange="changepage()" th:field="*{lotteryType}">
-									<option selected value="mega">Mega 6/45</option>
-									<option value="max">Max 3D</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-3"></div>
 
+					<div class="row mt-5 mb-2">
+						<input type="hidden" th:field="*{id}">
+						<input type="hidden" th:field="*{lotteryType}">
+						<input type="hidden" th:field="*{drawDate}">
 						<div class="col-3"></div>
 						<div class="col-6">
 							<h5 class="text-center mt-3">Draw date</h5>
 							<div class="mt-3">
-								<input type="date" class="form-control" name="date"
-									required="required" th:field="*{drawDate}" disabled="disabled">
+								<input type="date" class="form-control" th:field="*{drawDate}"
+									disabled="disabled">
 							</div>
 						</div>
 						<div class="col-3"></div>
@@ -71,17 +60,20 @@
 							<p class="text-center text-danger" th:text="${error}"></p>
 							<div class="mt-4 d-flex justify-content-evenly">
 								<input type="text" class="ip-round-mega" maxlength="2"
-									name="check-mega1" required="required" th:value="${lottery.winArray()[0]}"> <input
-									type="text" maxlength="2" class="ip-round-mega"
-									name="check-mega2" required="required" th:value="${lottery.winArray()[1]}"> <input
-									type="text" maxlength="2" class="ip-round-mega"
-									name="check-mega3" required="required" th:value="${lottery.winArray()[2]}"> <input
-									type="text" maxlength="2" class="ip-round-mega"
-									name="check-mega4" required="required" th:value="${lottery.winArray()[3]}"> <input
-									type="text" class="ip-round-mega" maxlength="2"
-									name="check-mega5" required="required" th:value="${lottery.winArray()[4]}"> <input
-									type="text" maxlength="2" class="ip-round-mega"
-									name="check-mega6" required="required" th:value="${lottery.winArray()[5]}">
+									name="check-mega1" required="required"
+									th:value="${lottery.winArray()[0]}"> <input type="text"
+									maxlength="2" class="ip-round-mega" name="check-mega2"
+									required="required" th:value="${lottery.winArray()[1]}">
+								<input type="text" maxlength="2" class="ip-round-mega"
+									name="check-mega3" required="required"
+									th:value="${lottery.winArray()[2]}"> <input type="text"
+									maxlength="2" class="ip-round-mega" name="check-mega4"
+									required="required" th:value="${lottery.winArray()[3]}">
+								<input type="text" class="ip-round-mega" maxlength="2"
+									name="check-mega5" required="required"
+									th:value="${lottery.winArray()[4]}"> <input type="text"
+									maxlength="2" class="ip-round-mega" name="check-mega6"
+									required="required" th:value="${lottery.winArray()[5]}">
 							</div>
 						</div>
 

@@ -78,62 +78,64 @@ function changepage() {
 						<h5 class="text-center">Special price</h5>
 						<div class="mt-4 d-flex justify-content-evenly">
 							<input type="text" maxlength="3" class="ip-round"
-								name="special-price1" required="required"> <input
+								name="special-price1" required="required" th:value="${special1}"> <input
 								type="text" maxlength="3" class="ip-round" name="special-price2"
-								required="required">
+								required="required" th:value="${special2}">
 						</div>
 					</div>
 					<div class="mt-4">
 						<h5 class="text-center">First price</h5>
 						<div class="mt-4 d-flex justify-content-evenly">
 							<input type="text" class="ip-round" maxlength="3"
-								name="first-price1" required="required"> <input
+								name="first-price1" required="required" th:value="${first1}"> <input
 								type="text" maxlength="3" class="ip-round" name="first-price2"
-								required="required"> <input type="text" maxlength="3"
-								class="ip-round" name="first-price3" required="required">
+								required="required" th:value="${first2}"> <input type="text" maxlength="3"
+								class="ip-round" name="first-price3" required="required" th:value="${first3}">
 							<input type="text" maxlength="3" class="ip-round"
-								name="first-price4" required="required">
+								name="first-price4" required="required" th:value="${first4}">
 						</div>
 					</div>
 					<div class="mt-4">
 						<h5 class="text-center">Second price</h5>
 						<div class="mt-4 d-flex justify-content-evenly">
 							<input type="text" class="ip-round" maxlength="3"
-								name="second-price1" required="required"> <input
+								name="second-price1" required="required" th:value="${second1}"> <input
 								type="text" maxlength="3" class="ip-round" name="second-price2"
-								required="required"> <input type="text" class="ip-round"
-								maxlength="3" name="second-price3" required="required">
+								required="required" th:value="${second2}"> <input type="text" class="ip-round"
+								maxlength="3" name="second-price3" required="required" th:value="${second3}">
 						</div>
 						<div class="mt-4 d-flex justify-content-evenly">
 							<input type="text" class="ip-round" maxlength="3"
-								name="second-price4" required="required"> <input
+								name="second-price4" required="required" th:value="${second4}"> <input
 								type="text" maxlength="3" class="ip-round" name="second-price5"
-								required="required"> <input type="text" class="ip-round"
-								maxlength="3" name="second-price6" required="required">
+								required="required" th:value="${second5}"> <input type="text" class="ip-round"
+								maxlength="3" name="second-price6" required="required" th:value="${second6}">
 						</div>
 					</div>
 					<div class="mt-4">
 						<h5 class="text-center">Third price</h5>
 						<div class="mt-4 d-flex justify-content-evenly">
 							<input type="text" class="ip-round" maxlength="3"
-								name="third-price1" required="required"> <input
+								name="third-price1" required="required" th:value="${third1}"> <input
 								type="text" class="ip-round" maxlength="3" name="third-price2"
-								required="required"> <input type="text" maxlength="3"
-								class="ip-round" name="third-price3" required="required"><input
+								required="required" th:value="${third2}"> <input type="text" maxlength="3"
+								class="ip-round" name="third-price3" required="required" th:value="${third3}"><input
 								type="text" maxlength="3" class="ip-round" name="third-price4"
-								required="required">
+								required="required" th:value="${third4}">
 						</div>
 						<div class="mt-4 d-flex justify-content-evenly">
 							<input type="text" class="ip-round" maxlength="3"
-								name="third-price5" required="required"> <input
+								name="third-price5" required="required" th:value="${third5}"> <input
 								type="text" class="ip-round" maxlength="3" name="third-price6"
-								required="required"> <input type="text" class="ip-round"
-								maxlength="3" name="third-price7" required="required"><input
+								required="required" th:value="${third6}"> <input type="text" class="ip-round"
+								maxlength="3" name="third-price7" required="required" th:value="${third7}"><input
 								type="text" class="ip-round" maxlength="3" name="third-price8"
-								required="required">
+								required="required" th:value="${third8}">
 						</div>
 					</div>
+					
 					<div class="col-sm-12 text-center mt-4 mb-5">
+						<p class="text-center text-danger" th:text="${error}"></p>
 						<input type="submit" class="btn btn-outline-secondary"
 							style="color: red" value="Add lottery">
 					</div>

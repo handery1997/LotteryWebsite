@@ -74,7 +74,7 @@ public class LotteryServiceImp implements LotteryService {
 		String result ="";
 		for(String i : special) {
 			if(number.equals(i)) {
-				result+="Congratulation you have won special price";
+				result+="Special price";
 				break;
 			}	
 		}
@@ -82,7 +82,7 @@ public class LotteryServiceImp implements LotteryService {
 		for(String i : first) {
 			if(number.equals(i)) {
 				if(result.equals("")) {
-					result+="Congratulation you have won first price";
+					result+="First price";
 				break;
 				} else {
 					result+=", first price";
@@ -92,7 +92,7 @@ public class LotteryServiceImp implements LotteryService {
 		for(String i : second) {
 			if(number.equals(i)) {
 				if(result.equals("")) {
-					result+="Congratulation you have won second price";
+					result+="Second price";
 				break;
 				} else {
 					result+=", second price";
@@ -103,7 +103,7 @@ public class LotteryServiceImp implements LotteryService {
 		for(String i : third) {
 			if(number.equals(i)) {
 				if(result.equals("")) {
-					result+="Congratulation you have won third price";
+					result+="Third price";
 				break;
 				} else {
 					result+=", third price";
@@ -135,27 +135,36 @@ public class LotteryServiceImp implements LotteryService {
 			result = "Good luck next time!";
 			
 		}else if(count == 3){
-			result = "Congratulation you have won third price";
+			result = "third price";
 		}else if(count == 4){
-			result = "Congratulation you have won second price";
+			result = "second price";
 		}else if(count == 5){
-			result = "Congratulation you have won third price";
+			result = "first price";
 		}
 		else if(count == 6){
-			result = "Congratulation you have won the jackpot";
+			result = "jackpot";
 		}
 		return result;
 	}
 
 	@Override
 	public boolean validateMega(String[] arr) {
-		for(int i = 0; i<arr.length-2;i++) {
+		for(int i = 0; i<arr.length-1;i++) {
 			if(Integer.parseInt(arr[i])>45) {
 				return false;
 			}
 			if(Integer.parseInt(arr[i+1])>45) {
 				return false;
 			}
+			if(arr[i].equals(arr[i+1])) {
+				return false;
+			}
+		}
+		return true;
+	}
+	@Override
+	public boolean validateMax(String[] arr) {
+		for(int i = 0; i<arr.length-1;i++) {
 			if(arr[i].equals(arr[i+1])) {
 				return false;
 			}

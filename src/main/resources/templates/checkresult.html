@@ -19,66 +19,78 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
 	integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 	crossorigin="anonymous"></script>
+<script type="text/javascript">
+function changepage() {
+	const lottery = document.getElementById("lottery").value;
+	if(lottery==="max"){
+	 window.location.assign("/checkresult");
+	} else{
+	window.location.assign("/checkresultmega");
+	}
+ 
+}
+</script>
 </head>
 <body>
 	<div th:replace="header :: header"></div>
 	<form action="#" th:action="@{/checkmax}" method="post">
-	<div class="d-flex justify-content-center mt-5 mb-5">
-		<div class="zone col-md-6 border">
-			<div class="header">
-				<div class="text-center border-bottom mt-2 mb-2">
-					<h3>Check Result</h3>
-					<p>Choose product, choose number and date to check result</p>
+		<div class="d-flex justify-content-center mt-5 mb-5">
+			<div class="zone col-md-6 border">
+				<div class="header">
+					<div class="text-center border-bottom mt-2 mb-2">
+						<h3>Check Result</h3>
+						<p>Choose product, choose number and date to check result</p>
+					</div>
+					<!-- /.header-title -->
 				</div>
-				<!-- /.header-title -->
-			</div>
-			<!-- /.header -->
-			<div>
-				<div class="doso_img">
-					<img
-						src="https://media.vietlott.vn//main/04.2019/bcc/game/thumbnail_max3d-01.jpg"
-						alt="Max 3D">
-				</div>
-				<!-- /doso_img -->
-				<div style="text-align: center; font-weight: bold; color: maroon">
-					<h2>Check Result Max3D</h2>
-					<p class="text-danger" th:text="${result}"></p>
-				</div>
-				<div class="row mt-5 mb-2">
-					<div class="col-sm-6 ">
-						<h5 class="text-center">Choose Product</h5>
-						<div class="mx-3 mt-3">
-							<select class="form-control">
-								<option selected="" value="1">Max 3D</option>
-								<option value="2">Mega 6/45</option>
-							</select>
+				<!-- /.header -->
+				<div>
+					<div class="doso_img">
+						<img
+							src="https://media.vietlott.vn//main/04.2019/bcc/game/thumbnail_max3d-01.jpg"
+							alt="Max 3D">
+					</div>
+					<!-- /doso_img -->
+					<div style="text-align: center; font-weight: bold; color: maroon">
+						<h2>Check Result Max3D</h2>
+						<p class="text-danger" th:text="${result}"></p>
+					</div>
+					<div class="row mt-5 mb-2">
+						<div class="col-sm-6 ">
+							<h5 class="text-center">Choose Product</h5>
+							<div class="mx-3 mt-3">
+								<select class="form-control" id="lottery" onchange="changepage()">
+									<option selected="" value="max">Max 3D</option>
+									<option value="mega">Mega 6/45</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<h5 class="text-center">Choose Date</h5>
+							<div class="mx-3 mt-3">
+								<select class="form-control" name="date">
+									<option th:each="i:${list}" th:value="${i.drawDate}"
+										th:text="${i.drawDate}"></option>
+								</select>
+							</div>
+						</div>
+						<div class="col-3"></div>
+						<div class="col-6">
+							<div class="mt-4">
+								<input type="text" maxlength="3" class="ip-width form-control"
+									name="check" required="required">
+							</div>
+						</div>
+						<div class="col-3"></div>
+						<div class="col-sm-12 text-center mt-4 mb-5">
+							<input type="submit" class="btn btn-outline-secondary"
+								style="color: red" value="Check">
 						</div>
 					</div>
-					<div class="col-sm-6">
-						<h5 class="text-center">Choose Date</h5>
-						<div class="mx-3 mt-3">
-							<select class="form-control" name="date">
-								<option th:each ="i:${list}" th:value="${i.drawDate}" th:text="${i.drawDate}"></option>
-							</select>
-						</div>
-					</div>
-					<div class="col-3"></div>
-					<div class="col-6">
-						<div class="mt-4">
-							<input type="text" maxlength="3" class="ip-width form-control"
-								name="check" required="required">
-						</div>
-					</div>
-					<div class="col-3"></div>
-					<div class="col-sm-12 text-center mt-4 mb-5">
-						<input type="submit" class="btn btn-outline-secondary"
-							style="color: red" value="Check">
-					</div>
+					<!-- /doso_input -->
 				</div>
-				<!-- /doso_input -->
 			</div>
 		</div>
-	</div>
 	</form>
 	<footer th:replace="footer :: footer"> </footer>
 </body>

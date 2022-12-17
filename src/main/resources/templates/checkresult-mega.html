@@ -20,52 +20,64 @@
 	integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 	crossorigin="anonymous"></script>
 </head>
+<script type="text/javascript">
+function changepage() {
+	const lottery = document.getElementById("lottery").value;
+	if(lottery==="max"){
+	 window.location.assign("/checkresult");
+	} else{
+	window.location.assign("/checkresultmega");
+	}
+ 
+}
+</script>
 <body>
 	<div th:replace="header :: header"></div>
-	<form action = "#" th:action="@{/checkmega}" method="post">
-	<div class="d-flex justify-content-center mt-5 mb-5">
-		<div class="zone col-md-6 border">
-			<div class="header">
-				<div class="text-center border-bottom mt-2 mb-2">
-					<h3>Check Result</h3>
-					<p>Choose product, choose number and date to check result</p>
-				</div>
-				<!-- /.header-title -->
-			</div>
-			<!-- /.header -->
-			<div>
-				<div class="doso_img">
-					<img
-						src="https://media.vietlott.vn//main/06.2018/cms/game/mega-645_full-color_cut-copy.png"
-						alt="Mega 6/45">
-				</div>
-				<!-- /doso_img -->
-				<div style="text-align: center; font-weight: bold; color: maroon">
-					<h2>Check Result Mega 6/45</h2>
-				</div>
-				<div class="row mt-5 mb-2">
-					<div class="col-sm-6 ">
-						<h5 class="text-center">Choose Product</h5>
-						<div class="mx-3 mt-3">
-							<select class="form-control">
-								<option value="1">Max 3D</option>
-								<option selected="" value="2">Mega 6/45</option>
-							</select>
-						</div>
+	<form action="#" th:action="@{/checkmega}" method="post">
+		<div class="d-flex justify-content-center mt-5 mb-5">
+			<div class="zone col-md-6 border">
+				<div class="header">
+					<div class="text-center border-bottom mt-2 mb-2">
+						<h3>Check Result</h3>
+						<p>Choose product, choose number and date to check result</p>
 					</div>
-					<div class="col-sm-6">
-						<h5 class="text-center">Choose Date</h5>
-						<div class="mx-3 mt-3">
-							<select name="date" class="form-control">
-								<option th:each ="lottery:${list}" th:value="${lottery.drawDate}" th:text="${lottery.drawDate}"></option>
-							</select>
-						</div>
+					<!-- /.header-title -->
+				</div>
+				<!-- /.header -->
+				<div>
+					<div class="doso_img">
+						<img
+							src="https://media.vietlott.vn//main/06.2018/cms/game/mega-645_full-color_cut-copy.png"
+							alt="Mega 6/45">
 					</div>
-					<div class="mt-4">
-						<h5 class="text-center">Check number input</h5>
-						<p class="text-center text-danger" th:text="${error}"></p>
-						<p class="text-center text-danger" th:text="${result}"></p>
-						<div class="mt-4 d-flex justify-content-evenly">
+					<!-- /doso_img -->
+					<div style="text-align: center; font-weight: bold; color: maroon">
+						<h2>Check Result Mega 6/45</h2>
+					</div>
+					<div class="row mt-5 mb-2">
+						<div class="col-sm-6 ">
+							<h5 class="text-center">Choose Product</h5>
+							<div class="mx-3 mt-3">
+								<select class="form-control" id="lottery" onchange="changepage()">
+									<option value="max">Max 3D</option>
+									<option selected="" value="mega">Mega 6/45</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<h5 class="text-center">Choose Date</h5>
+							<div class="mx-3 mt-3">
+								<select name="date" class="form-control">
+									<option th:each="lottery:${list}"
+										th:value="${lottery.drawDate}" th:text="${lottery.drawDate}"></option>
+								</select>
+							</div>
+						</div>
+						<div class="mt-4">
+							<h5 class="text-center">Check number input</h5>
+							<p class="text-center text-danger" th:text="${error}"></p>
+							<p class="text-center text-danger" th:text="${result}"></p>
+							<div class="mt-4 d-flex justify-content-evenly">
 								<input type="number" class="ip-round-mega" min="1" max="45"
 									name="check-mega1" required="required"> <input
 									type="number" min="1" max="45" class="ip-round-mega"
@@ -79,16 +91,16 @@
 									type="number" min="1" max="45" class="ip-round-mega"
 									name="check-mega6" required="required">
 							</div>
+						</div>
+						<div class="col-sm-12 text-center mt-4 mb-5">
+							<input type="submit" class="btn btn-outline-secondary"
+								style="color: red" value="Check">
+						</div>
 					</div>
-					<div class="col-sm-12 text-center mt-4 mb-5">
-						<input type="submit" class="btn btn-outline-secondary"
-							style="color: red" value="Check">
-					</div>
+					<!-- /doso_input -->
 				</div>
-				<!-- /doso_input -->
 			</div>
 		</div>
-	</div>
 	</form>
 	<footer th:replace="footer :: footer"> </footer>
 </body>

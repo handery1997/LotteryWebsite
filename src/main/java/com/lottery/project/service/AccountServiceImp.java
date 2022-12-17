@@ -2,6 +2,7 @@ package com.lottery.project.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import javax.management.RuntimeErrorException;
 
@@ -77,6 +78,21 @@ public class AccountServiceImp implements AccountService{
 			}
 		} 
 		return false;
+	}
+
+	@Override
+	public String resetPassword(Account account) {
+		String lower = "abcdefghijklmnopqrstuvwxyz";
+	    String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	    String digits = "0123456789";
+	    String combine= lower+upper+digits;
+		String newPassword="";
+		Random random = new Random();
+		for(int i=0;i<10;i++) {
+			newPassword+=combine.charAt(random.nextInt(combine.length()));
+		}
+		account.setPassword(newPassword);
+		return account.getPassword();
 	}
 	
 	

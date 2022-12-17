@@ -36,8 +36,22 @@
 								<a class="dropdown-item" href="#">Mega 6/45</a> <a
 									class="dropdown-item" href="#">Max 3D</a>
 							</div></li>
-						<li class="nav-item"><a class="nav-link" href="#">Check
+						<li th:unless="${session.loggedin==null}" class="nav-item"><a
+							class="nav-link" th:href="@{/checkresult}"
+							th:if="${session.loggedin.accountRole=='Normal'}">Check
 								Result</a></li>
+						<li th:unless="${session.loggedin==null}" class="nav-item"><a
+							class="nav-link" th:href="@{/checkhistory}"
+							th:if="${session.loggedin.accountRole=='Normal'}">Check
+								Result History</a></li>
+						<li th:unless="${session.loggedin==null}" class="nav-item"><a
+							class="nav-link" th:href="@{/usermanage}"
+							th:if="${session.loggedin.accountRole=='Admin'}">User
+								Management</a></li>
+						<li th:unless="${session.loggedin==null}" class="nav-item"><a
+							class="nav-link" th:href="@{/lotterymanage}"
+							th:if="${session.loggedin.accountRole=='Admin'}">Lottery
+								Management</a></li>
 						<li th:if="${session.loggedin==null}" class="nav-item"><a
 							class="nav-link" th:href="@{/login}">Login</a></li>
 						<li th:if="${session.loggedin==null}" class="nav-item"><a
@@ -45,14 +59,16 @@
 
 					</ul>
 				</div>
-				<div th:if="${session.loggedin!=null}" class="dropdown me-3 text-center">
+				<div th:if="${session.loggedin!=null}"
+					class="dropdown me-3 text-center">
 					<a href="#" data-bs-toggle="dropdown"
-						class="nav-item nav-link dropdown-toggle " ><img
+						class="nav-item nav-link dropdown-toggle "><img
 						src="/img/user_avatar.png" class="rounded-circle" width="45"
-						height="45"><b class="user-action" th:text="${session.loggedin.getFullName()}"></b></a>
+						height="45"><b class="user-action"
+						th:text="${session.loggedin.getFullName()}"></b></a>
 					<div class="dropdown-menu">
-						<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i>
-							Profile</a>
+						<a th:href="@{/changepassword}" class="dropdown-item"><i
+							class="fa fa-user-o"></i> Change Password</a>
 						<div class="divider dropdown-divider"></div>
 						<a th:href="@{/logout}" class="dropdown-item">Logout</a>
 					</div>

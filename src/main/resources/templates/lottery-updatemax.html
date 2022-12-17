@@ -50,96 +50,106 @@ function changepage() {
 						alt="Max 3D">
 				</div>
 				<!-- /doso_img -->
-			<form action="#" th:action="@{/addMax}" method="post" th:object="${lottery}">
-			
-				<div class="row mt-5 mb-2">
-				<input type="hidden" th:field="*{id}">
-					<div class="col-3"></div>
-					<div class="col-6">
-						<h5 class="text-center">Choose lottery type</h5>
-						<div class="mx-3 mt-3">
-							<select class="form-control" id="lottery" onchange="changepage()" th:field="*{lotteryType}">
-								<option selected value="max">Max 3D</option>
-								<option value="mega">Mega 6/45</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-3"></div>
+				<form action="#" th:action="@{/updateMax}" method="post"
+					th:object="${lottery}">
 
-					<div class="col-3"></div>
-					<div class="col-6">
-						<h5 class="text-center mt-3">Draw date</h5>
-						<div class="mt-3">
-							<input type="date" class="form-control" name="date"
-								required="required" th:field="*{drawDate}" disabled="disabled">
+					<div class="row mt-5 mb-2">
+						<input type="hidden" th:field="*{id}"> <input
+							type="hidden" th:field="*{lotteryType}"> <input
+							type="hidden" th:field="*{drawDate}">
+						<div class="col-3"></div>
+						<div class="col-6">
+							<h5 class="text-center mt-3">Draw date</h5>
+							<div class="mt-3">
+								<input type="date" class="form-control"
+									th:value=${lottery.drawDate} required="required"
+									th:field="*{drawDate}" disabled="disabled">
+							</div>
 						</div>
-					</div>
-					<div class="col-3"></div>
+						<div class="col-3"></div>
 
-					<div class="mt-4">
-						<h5 class="text-center">Special price</h5>
-						<div class="mt-4 d-flex justify-content-evenly">
-							<input type="text" maxlength="3" class="ip-round"
-								name="special-price1" required="required" th:value="${lottery.specialArray()[0]}"> <input
-								type="text" maxlength="3" class="ip-round" name="special-price2"
-								required="required" th:value="${lottery.specialArray()[1]}">
+						<div class="mt-4">
+							<h5 class="text-center">Special price</h5>
+							<div class="mt-4 d-flex justify-content-evenly">
+								<input type="text" maxlength="3" class="ip-round"
+									name="special-price1" required="required"
+									th:value="${lottery.specialArray()[0]}"> <input
+									type="text" maxlength="3" class="ip-round"
+									name="special-price2" required="required"
+									th:value="${lottery.specialArray()[1]}">
+							</div>
+						</div>
+						<div class="mt-4">
+							<h5 class="text-center">First price</h5>
+							<div class="mt-4 d-flex justify-content-evenly">
+								<input type="text" class="ip-round" maxlength="3"
+									name="first-price1" required="required"
+									th:value="${lottery.firstArray()[0]}"> <input
+									type="text" maxlength="3" class="ip-round" name="first-price2"
+									required="required" th:value="${lottery.firstArray()[1]}">
+								<input type="text" maxlength="3" class="ip-round"
+									name="first-price3" required="required"
+									th:value="${lottery.firstArray()[2]}"> <input
+									type="text" maxlength="3" class="ip-round" name="first-price4"
+									required="required" th:value="${lottery.firstArray()[3]}">
+							</div>
+						</div>
+						<div class="mt-4">
+							<h5 class="text-center">Second price</h5>
+							<div class="mt-4 d-flex justify-content-evenly">
+								<input type="text" class="ip-round" maxlength="3"
+									name="second-price1" required="required"
+									th:value="${lottery.secondArray()[0]}"> <input
+									type="text" maxlength="3" class="ip-round" name="second-price2"
+									required="required" th:value="${lottery.secondArray()[1]}">
+								<input type="text" class="ip-round" maxlength="3"
+									name="second-price3" required="required"
+									th:value="${lottery.secondArray()[2]}">
+							</div>
+							<div class="mt-4 d-flex justify-content-evenly">
+								<input type="text" class="ip-round" maxlength="3"
+									name="second-price4" required="required"
+									th:value="${lottery.secondArray()[3]}"> <input
+									type="text" maxlength="3" class="ip-round" name="second-price5"
+									required="required" th:value="${lottery.secondArray()[4]}">
+								<input type="text" class="ip-round" maxlength="3"
+									name="second-price6" required="required"
+									th:value="${lottery.secondArray()[5]}">
+							</div>
+						</div>
+						<div class="mt-4">
+							<h5 class="text-center">Third price</h5>
+							<div class="mt-4 d-flex justify-content-evenly">
+								<input type="text" class="ip-round" maxlength="3"
+									name="third-price1" required="required"
+									th:value="${lottery.thirdArray()[0]}"> <input
+									type="text" class="ip-round" maxlength="3" name="third-price2"
+									required="required" th:value="${lottery.thirdArray()[1]}">
+								<input type="text" maxlength="3" class="ip-round"
+									name="third-price3" required="required"
+									th:value="${lottery.thirdArray()[2]}"><input
+									type="text" maxlength="3" class="ip-round" name="third-price4"
+									required="required" th:value="${lottery.thirdArray()[3]}">
+							</div>
+							<div class="mt-4 d-flex justify-content-evenly">
+								<input type="text" class="ip-round" maxlength="3"
+									name="third-price5" required="required"
+									th:value="${lottery.thirdArray()[4]}"> <input
+									type="text" class="ip-round" maxlength="3" name="third-price6"
+									required="required" th:value="${lottery.thirdArray()[5]}">
+								<input type="text" class="ip-round" maxlength="3"
+									name="third-price7" required="required"
+									th:value="${lottery.thirdArray()[6]}"><input
+									type="text" class="ip-round" maxlength="3" name="third-price8"
+									required="required" th:value="${lottery.thirdArray()[7]}">
+							</div>
+						</div>
+						<div class="col-sm-12 text-center mt-4 mb-5">
+							<p class="text-center text-danger" th:text="${error}"></p>
+							<input type="submit" class="btn btn-outline-secondary"
+								style="color: red" value="Update lottery">
 						</div>
 					</div>
-					<div class="mt-4">
-						<h5 class="text-center">First price</h5>
-						<div class="mt-4 d-flex justify-content-evenly">
-							<input type="text" class="ip-round" maxlength="3"
-								name="first-price1" required="required" th:value="${lottery.firstArray()[0]}"> <input
-								type="text" maxlength="3" class="ip-round" name="first-price2"
-								required="required" th:value="${lottery.firstArray()[1]}"> <input type="text" maxlength="3"
-								class="ip-round" name="first-price3" required="required" th:value="${lottery.firstArray()[2]}">
-							<input type="text" maxlength="3" class="ip-round"
-								name="first-price4" required="required" th:value="${lottery.firstArray()[3]}">
-						</div>
-					</div>
-					<div class="mt-4">
-						<h5 class="text-center">Second price</h5>
-						<div class="mt-4 d-flex justify-content-evenly">
-							<input type="text" class="ip-round" maxlength="3"
-								name="second-price1" required="required" th:value="${lottery.secondArray()[0]}"> <input
-								type="text" maxlength="3" class="ip-round" name="second-price2"
-								required="required" th:value="${lottery.secondArray()[1]}"> <input type="text" class="ip-round"
-								maxlength="3" name="second-price3" required="required" th:value="${lottery.secondArray()[2]}">
-						</div>
-						<div class="mt-4 d-flex justify-content-evenly">
-							<input type="text" class="ip-round" maxlength="3"
-								name="second-price4" required="required" th:value="${lottery.secondArray()[3]}"> <input
-								type="text" maxlength="3" class="ip-round" name="second-price5"
-								required="required" th:value="${lottery.secondArray()[4]}"> <input type="text" class="ip-round"
-								maxlength="3" name="second-price6" required="required" th:value="${lottery.secondArray()[5]}">
-						</div>
-					</div>
-					<div class="mt-4">
-						<h5 class="text-center">Third price</h5>
-						<div class="mt-4 d-flex justify-content-evenly">
-							<input type="text" class="ip-round" maxlength="3"
-								name="third-price1" required="required" th:value="${lottery.thirdArray()[0]}"> <input
-								type="text" class="ip-round" maxlength="3" name="third-price2"
-								required="required" th:value="${lottery.thirdArray()[1]}"> <input type="text" maxlength="3"
-								class="ip-round" name="third-price3" required="required" th:value="${lottery.thirdArray()[2]}"><input
-								type="text" maxlength="3" class="ip-round" name="third-price4"
-								required="required" th:value="${lottery.thirdArray()[3]}">
-						</div>
-						<div class="mt-4 d-flex justify-content-evenly">
-							<input type="text" class="ip-round" maxlength="3"
-								name="third-price5" required="required" th:value="${lottery.thirdArray()[4]}"> <input
-								type="text" class="ip-round" maxlength="3" name="third-price6"
-								required="required" th:value="${lottery.thirdArray()[5]}"> <input type="text" class="ip-round"
-								maxlength="3" name="third-price7" required="required" th:value="${lottery.thirdArray()[6]}"><input
-								type="text" class="ip-round" maxlength="3" name="third-price8"
-								required="required" th:value="${lottery.thirdArray()[7]}">
-						</div>
-					</div>
-					<div class="col-sm-12 text-center mt-4 mb-5">
-						<input type="submit" class="btn btn-outline-secondary"
-							style="color: red" value="Update lottery">
-					</div>
-				</div>
 				</form>
 				<!-- /doso_input -->
 			</div>

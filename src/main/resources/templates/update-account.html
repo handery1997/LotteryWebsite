@@ -21,29 +21,29 @@
 	<div th:replace="header :: header"></div>
 	<div class="adjust-width">
 		<div class="w-25">
+			<div class="text-center">
+				<a th:href="@{/usermanage}"
+					class="btn btn-primary btn-block mb-3 w-100">Return To User
+					Management</a> <a th:href="@{/resetpass/{id}(id=${updateAccount.id})}"
+					class="btn btn-primary btn-block mb-3 w-100">Reset Password</a>
+			</div>
+			<div class="text-center mb-3">
+				<h2>Update Account</h2>
+			</div>
 			<form action="#" th:action="@{/updateAccountForm}"
 				th:object="${updateAccount}" method="post">
-
-				<div class="text-center mb-3">
-					<h2>Update Account</h2>
-				</div>
 				<input type="hidden" th:field="*{id}" /> <input type="hidden"
+					th:field="*{password}" /> <input type="hidden"
+					th:field="*{userMail}" /> <input th:if="${updateAccount.accountRole =='Admin'}" type="hidden"
 					th:field="*{accountRole}" />
 				<!-- Name input -->
 				<div class="form-outline mb-4">
 					<label for="registerName">Full Name</label> <input type="text"
-						id="registerName" class="form-control" th:field="*{fullName}" th:text="${updateAccount.fullName}"/>
+						id="registerName" class="form-control" th:field="*{fullName}" />
 					<p class="text-danger" th:if="${#fields.hasErrors('fullName')}"
 						th:errors="*{fullName}">
 				</div>
-
-				<!-- Username input -->
-				<div class="form-outline mb-4">
-					<label for="registerEmail">Email</label> <input type="email"
-						id="registerEmail" class="form-control" th:field="*{userMail}" />
-					<p class="text-danger" th:if="${#fields.hasErrors('userMail')}"
-						th:errors="*{userMail}">
-				</div>
+				<!-- /Name input -->
 
 				<!-- Phone input -->
 				<div class="form-outline mb-4">
@@ -52,18 +52,24 @@
 					<p class="text-danger" th:if="${#fields.hasErrors('userPhone')}"
 						th:errors="*{userPhone}">
 				</div>
-
-				<!-- Password input -->
-				<div class="form-outline mb-4">
-					<label for="registerPassword">Password</label> <input
-						type="password" id="registerPassword" class="form-control"
-						th:field="*{password}" />
-					<p class="text-danger" th:if="${#fields.hasErrors('password')}"
-						th:errors="*{password}">
+				<!-- /Phone input -->
+				
+				<!-- Account role input -->
+				<div th:if="${updateAccount.accountRole =='Normal'}"
+					class="form-outline mb-4">
+					<label for="selectStatus">Account Role</label> <select
+						class="form-select" th:field="*{accountRole}">
+						<option th:value="${updateAccount.accountRole}"
+							th:text="${updateAccount.accountRole}"></option>
+						<option th:text="Admin" th:value="Admin"></option>
+					</select>
 				</div>
+				<!-- /Account role input -->
+				
+				<!-- Status input -->
 				<div class="form-outline mb-4">
 					<label for="selectStatus">Status</label> <select
-						class="form-select" th:field="*{status}" id="selectStatus">
+						class="form-select" th:field="*{status}">
 						<option selected th:value="${updateAccount.status}"
 							th:text="${updateAccount.status}"></option>
 						<option th:if="${updateAccount.status == 'Active'}"
@@ -72,7 +78,10 @@
 							th:value="Active" th:text="Active">
 					</select>
 				</div>
-
+				<!-- /Status input -->
+				<div class="text-center mb-3">
+					<p class="text-center text-danger" th:text="${mess}"></p>
+				</div>
 				<!-- Submit button -->
 				<div class="text-center">
 					<button type="submit" class="btn btn-primary btn-block mb-3 w-100">Update
